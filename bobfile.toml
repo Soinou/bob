@@ -1,0 +1,7 @@
+target = "node"
+
+entry = "cli/index.ts"
+
+namespace = "@bob"
+
+loaders = ["typescript"]

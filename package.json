@@ -1,0 +1,53 @@
+{
+    "name": "bob",
+    "version": "1.0.0",
+    "description": "It's a builder!",
+    "main": "./bin/index.js",
+    "bin": "./bin/index.js",
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "webpack",
+        "watch": "webpack --watch"
+    },
+    "dependencies": {
+        "@types/cli": "^0.11.19",
+        "@types/fs-extra-promise": "^1.0.6",
+        "@types/node": "^10.5.1",
+        "@types/signale": "^1.2.0",
+        "@types/webpack": "^4.4.4",
+        "@types/webpack-serve": "^1.0.4",
+        "@types/yargs": "^11.0.0",
+        "chalk": "^2.4.1",
+        "clean-webpack-plugin": "^0.1.19",
+        "connect-history-api-fallback": "^1.5.0",
+        "css-loader": "^0.28.11",
+        "fs-extra-promise": "^1.0.1",
+        "handlebars": "^4.0.11",
+        "handlebars-loader": "^1.7.0",
+        "html-webpack-plugin": "^4.0.0-alpha",
+        "koa-connect": "^2.0.1",
+        "mini-css-extract-plugin": "^0.4.1",
+        "signale": "^1.2.1",
+        "source-map-support": "^0.5.6",
+        "style-loader": "^0.21.0",
+        "stylus": "^0.54.5",
+        "stylus-loader": "^3.0.2",
+        "toml": "^2.3.3",
+        "ts-loader": "^4.4.2",
+        "tslib": "^1.9.3",
+        "tslint": "^5.10.0",
+        "tslint-config-prettier": "^1.13.0",
+        "typescript": "^2.9.2",
+        "uglifyjs-webpack-plugin": "^1.2.7",
+        "webpack": "^4.14.0",
+        "webpack-command": "^0.4.0",
+        "webpack-node-externals": "^1.7.2",
+        "webpack-serve": "^1.0.4",
+        "yargs": "^12.0.1"
+    }
+}
