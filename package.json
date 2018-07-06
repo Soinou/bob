@@ -1,6 +1,6 @@
 {
     "name": "bobpack",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "It's a builder!",
     "main": "./cli.js",
     "bin": "./cli.js",
