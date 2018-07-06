@@ -30,6 +30,7 @@ export const serve: IOption<Options> = (configuration: IConfiguration) => {
             client: hot.clientHost || hot.host || "127.0.0.1",
             server: hot.serverHost || hot.host || "0.0.0.0",
         },
+        https: false,
         logLevel: "warn",
         port: hot.port || 8081,
     };

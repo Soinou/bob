@@ -1,4 +1,4 @@
-type Loader = "css" | "handlebars" | "stylus" | "typescript";
+type Loader = "css" | "handlebars" | "sass" | "stylus" | "typescript";
 
 export interface IConfiguration {
     /* Mandatory stuff for a minimal config */
@@ -13,7 +13,7 @@ export interface IConfiguration {
     namespace: string;
 
     // Loaders
-    loaders: string[];
+    loaders: Loader[];
 
     /* CLI Parameters */
 
@@ -23,10 +23,18 @@ export interface IConfiguration {
     // If we're watching files (Using webpack dev server or not)
     watch: boolean;
 
+    // If we should launch the bundle analyzer
+    analyzer: boolean;
+
     /* Extra stuff */
 
     // List of aliases
     alias: {
+        [key: string]: string;
+    };
+
+    // Webpack externals
+    externals: {
         [key: string]: string;
     };
 
@@ -41,8 +49,8 @@ export interface IConfiguration {
 
         // Html plugin properties
         html: {
+            template: string;
             title: string;
-            filename: string | [string, string];
         };
     };
 
@@ -52,12 +60,5 @@ export interface IConfiguration {
         content?: string[];
         host?: string;
         port?: number;
-
-        // Websocket parameters
-        hot?: {
-            clientHost?: string;
-            port?: number;
-            serverHost?: string;
-        };
     };
 }

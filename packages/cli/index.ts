@@ -12,6 +12,11 @@ import { log } from "@bob/utils/log";
 
 async function main() {
     yargs.options({
+        analyzer: {
+            default: false,
+            describe: "If the bundle analyzer plugin should be used",
+            type: "boolean",
+        },
         config: {
             default: "bobfile.toml",
             describe: "Uses the given configuration file to build",
@@ -36,6 +41,7 @@ async function main() {
 
     const argv = yargs.argv;
 
+    const analyzer = argv.analyzer;
     const production = argv.production;
     const serve = argv.serve;
     const watch = argv.watch;
@@ -68,6 +74,7 @@ async function main() {
     try {
         const data: IConfiguration = toml.parse(buffer.toString());
 
+        data.analyzer = analyzer;
         data.production = production;
         data.watch = watch;
 

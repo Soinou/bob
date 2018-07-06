@@ -12,7 +12,7 @@ export function clean({ plugins, target }: IConfiguration) {
     if (target === "web") {
         directories.push(path.resolve("public/assets"));
     } else if (target === "node") {
-        directories.push(path.resolve("bin"));
+        // directories.push(path.resolve("bin"));
     } else {
         // ???
     }

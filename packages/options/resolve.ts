@@ -17,20 +17,29 @@ export const resolve: IOption<webpack.Resolve> = ({ alias, loaders, namespace }:
     };
 
     if (loaders != null && Array.isArray(loaders) && loaders.length > 0) {
+        // Typescript is always first
+        if (loaders.includes("typescript")) {
+            extensions.push(".ts", ".tsx");
+        }
+
+        // Then css
         if (loaders.includes("css")) {
             extensions.push(".css");
         }
 
-        if (loaders.includes("handlebars")) {
-            extensions.push(".hbs");
-        }
-
+        // Then stylus
         if (loaders.includes("stylus")) {
             extensions.push(".styl");
         }
 
-        if (loaders.includes("typescript")) {
-            extensions.push(".ts", ".tsx");
+        // Then sass
+        if (loaders.includes("sass")) {
+            extensions.push(".sass", ".scss");
+        }
+
+        // And finally handlebars (Mostly for webpack-html-plugin templates)
+        if (loaders.includes("handlebars")) {
+            extensions.push(".hbs");
         }
     }
 

@@ -1,31 +1,30 @@
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
+import * as path from "path";
 
 import { IConfiguration } from "@bob/core/IConfiguration";
 import { log } from "@bob/utils/log";
 
 export function html(configuration: IConfiguration) {
+    const config: any = {};
+
     let options: any = {};
 
     if (configuration.plugins != null && configuration.plugins.html != null) {
         options = configuration.plugins.html;
     }
 
-    let filename = null;
     const title = options.title || "Title";
+    config.title = configuration.production ? title : `${title} - Dev`;
 
-    if (typeof options.filename === "string") {
-        filename = options.filename;
-    } else if (Array.isArray(options.filename) && options.filename.length === 2) {
-        filename = configuration.production ? options.filename[1] : options.filename[0];
-    } else {
-        filename = "index.html";
+    config.filename = configuration.serve ? "index.html" : "../index.html";
+
+    log.info("Creating html file named", config.filename, "with title", config.title);
+
+    config.inject = true;
+
+    if (options.template != null) {
+        config.template = path.resolve(options.template);
     }
 
-    log.info("Creating html file named", filename, "with title", title);
-
-    return new HtmlWebpackPlugin({
-        filename,
-        inject: true,
-        title: configuration.production ? title : `${title} - Dev`,
-    });
+    return new HtmlWebpackPlugin(config);
 }

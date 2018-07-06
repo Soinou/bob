@@ -3,13 +3,13 @@ import * as webpack from "webpack";
 import { IConfiguration } from "@bob/core/IConfiguration";
 import { output } from "@bob/options/output";
 
+import { devServer } from "./devServer";
 import { entries } from "./entries";
 import { externals } from "./externals";
 import { optimization } from "./optimization";
 import { plugins } from "./plugins";
 import { resolve } from "./resolve";
 import { rules } from "./rules";
-import { serve } from "./serve";
 
 export function create(configuration: IConfiguration): webpack.Configuration {
     const { production, target } = configuration;
@@ -37,7 +37,7 @@ export function create(configuration: IConfiguration): webpack.Configuration {
 
         resolve: resolve(configuration),
 
-        serve: serve(configuration),
+        devServer: devServer(configuration),
 
         target: target || "web",
     };

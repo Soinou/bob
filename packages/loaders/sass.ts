@@ -3,7 +3,7 @@ import * as os from "os";
 
 import { ILoader } from "@bob/core/ILoader";
 
-export const css: ILoader = configuration => {
+export const sass: ILoader = configuration => {
     const loaders = [];
     const thread = os.cpus().length > 2;
 
@@ -17,8 +17,10 @@ export const css: ILoader = configuration => {
         loaders.push("style-loader", "css-loader");
     }
 
+    loaders.push("sass-loader");
+
     return {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/,
         use: loaders,
     };
 };

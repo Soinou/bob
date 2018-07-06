@@ -20,7 +20,6 @@ export const stylus: ILoader = configuration => {
     loaders.push("stylus-loader");
 
     return {
-        exclude: /node_modules/,
         test: /\.styl$/,
         use: loaders,
     };

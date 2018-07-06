@@ -1,11 +1,11 @@
 import * as webpack from "webpack";
-import * as serve from "webpack-serve";
-
-import { IConfiguration } from "./IConfiguration";
 
 import { create } from "@bob/options/create";
 import { log } from "@bob/utils/log";
 import { reporter } from "@bob/utils/reporter";
+
+import { DevServer } from "./DevServer";
+import { IConfiguration } from "./IConfiguration";
 
 export class Builder {
     public constructor(private configuration: IConfiguration) {}
@@ -18,21 +18,9 @@ export class Builder {
 
             if (this.configuration.serve) {
                 log.start("Starting development server...");
-                serve({ compiler }).then(server => {
-                    let startTime: Date = null;
+                const server = new DevServer();
 
-                    server.on("build-started", () => {
-                        startTime = new Date();
-                    });
-
-                    server.on("build-finished", ({ stats }) => {
-                        const endTime: Date = new Date();
-
-                        const time = endTime.valueOf() - startTime.valueOf();
-
-                        reporter(null, stats, time);
-                    });
-                });
+                server.start(compiler, this.configuration);
             } else if (this.configuration.watch) {
                 log.start("Watching...");
                 compiler.watch({ ignored: /node_modules/ }, reporter);
