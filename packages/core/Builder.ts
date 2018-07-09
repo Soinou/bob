@@ -26,7 +26,13 @@ export class Builder {
                 compiler.watch({ ignored: /node_modules/ }, reporter);
             } else {
                 log.start("Building...");
-                compiler.run(reporter);
+                compiler.run((error, stats) => {
+                    const errored = reporter(error, stats);
+
+                    if (errored) {
+                        process.exit(1);
+                    }
+                });
             }
         } catch (error) {
             if (error.name === "WebpackOptionsValidationError") {

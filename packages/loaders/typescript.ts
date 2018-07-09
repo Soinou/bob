@@ -2,7 +2,7 @@ import * as os from "os";
 
 import { ILoader } from "../core/ILoader";
 
-export const typescript: ILoader = configuration => {
+export const typescript: ILoader = () => {
     const loaders = [];
     const thread = os.cpus().length > 2;
 

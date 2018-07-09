@@ -3,7 +3,7 @@ import * as webpack from "webpack";
 
 import { log } from "./log";
 
-export function reporter(error: Error, stats: webpack.Stats & any, customTime?: number) {
+export function reporter(error: Error, stats: webpack.Stats & any, customTime?: number): boolean {
     if (error) {
         log.error("Build failed");
 
@@ -15,12 +15,14 @@ export function reporter(error: Error, stats: webpack.Stats & any, customTime?: 
             log.error("Details:", details);
         }
 
-        return;
+        return false;
     }
 
     const info = stats.toJson("verbose");
 
     const time = customTime || info.time;
+
+    let errored = false;
 
     if (stats.compilation && stats.compilation.errors.length !== 0) {
         log.error("Build failed after", chalk.yellow.bold(`${time}ms`));
@@ -28,10 +30,14 @@ export function reporter(error: Error, stats: webpack.Stats & any, customTime?: 
         stats.compilation.errors.forEach((e: Error) => {
             log.error(chalk.red.bold(e.message));
         });
+
+        errored = true;
     } else if (stats.hasErrors()) {
         log.error("Build failed after", chalk.yellow.bold(`${time}ms`));
 
         reportErrors(info.errors);
+
+        errored = true;
     } else {
         reportJson(info, customTime);
     }
@@ -41,6 +47,8 @@ export function reporter(error: Error, stats: webpack.Stats & any, customTime?: 
     }
 
     // Rest
+
+    return errored;
 }
 
 export function reportJson(json: any, customTime?: number) {
