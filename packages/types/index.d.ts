@@ -5,5 +5,6 @@ declare module "koa-connect";
 declare module "mini-css-extract-plugin";
 declare module "time-fix-plugin";
 declare module "uglifyjs-webpack-plugin";
+declare module "vue-loader/lib/plugin";
 declare module "webpack-bundle-analyzer";
 declare module "webpack-node-externals";

@@ -1,20 +1,13 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
         "importHelpers": true,
         "lib": ["es6", "es7", "esnext"],
         "module": "esnext",
         "moduleResolution": "node",
-        "noImplicitAny": true,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitUseStrict": true,
-        "outDir": "./bin",
-        "paths": { "@web/*": ["./packages/*"] },
         "pretty": true,
+        "removeComments": true,
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
-        "sourceMap": true,
         "target": "es5",
         "types": ["node"]
     },

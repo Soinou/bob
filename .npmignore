@@ -1,11 +1,7 @@
 .cache
 *.tgz
-bin/index-fallback.js
-bin/index-fallback.js.map
-bobfile.toml
 examples
 packages
 tsconfig.json
 tslint.json
 webpack.config.js
-yarn.lock

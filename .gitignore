@@ -1,4 +1,4 @@
 .cache
-bin
-!bin/bobpack
+examples/node/bin
+examples/node/public
 node_modules
