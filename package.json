@@ -1,6 +1,6 @@
 {
     "name": "bobpack",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "It's a builder!",
     "keywords": [
         "builder",
@@ -39,18 +39,18 @@
         "clean-webpack-plugin": "^0.1.19",
         "connect-history-api-fallback": "^1.5.0",
         "css-loader": "^1.0.0",
-        "handlebars": "^4.0.12",
         "handlebars-loader": "^1.7.0",
+        "handlebars": "^4.0.12",
         "html-webpack-plugin": "^4.0.0-alpha",
         "koa-connect": "^2.0.1",
         "mini-css-extract-plugin": "^0.4.2",
         "node-sass": "^4.9.3",
-        "pug": "^2.0.3",
         "pug-plain-loader": "^1.0.0",
+        "pug": "^2.0.3",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.0",
-        "stylus": "^0.54.5",
         "stylus-loader": "^3.0.2",
+        "stylus": "^0.54.5",
         "thread-loader": "^1.2.0",
         "ts-loader": "^5.1.0",
         "tslib": "^1.9.3",
@@ -58,9 +58,10 @@
         "uglifyjs-webpack-plugin": "^1.3.0",
         "vue-loader": "^15.4.1",
         "vue-template-compiler": "^2.5.17",
-        "webpack": "^4.17.3",
+        "vue": "^2.5.17",
         "webpack-bundle-analyzer": "^2.13.1",
-        "webpack-node-externals": "^1.7.2"
+        "webpack-node-externals": "^1.7.2",
+        "webpack": "^4.17.3"
     },
     "devDependencies": {
         "@types/cli": "^0.11.19",
@@ -71,10 +72,9 @@
         "npm-run-all": "^4.1.3",
         "source-map-support": "^0.5.9",
         "tslint": "^5.11.0",
-        "tslint-config-prettier": "^1.15.0",
-        "vue": "^2.5.17"
+        "tslint-config-prettier": "^1.15.0"
     },
-    "optionalDependencies": {
+    "peerDependencies": {
         "webpack-command": "^0.4.1",
         "webpack-serve": "^2.0.2"
     }
