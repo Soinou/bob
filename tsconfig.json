@@ -1,15 +1,27 @@
 {
-    "references": [
-        { "path": "./packages/bobpack-clean" },
-        { "path": "./packages/bobpack-core" },
-        { "path": "./packages/bobpack-css" },
-        { "path": "./packages/bobpack-handlebars" },
-        { "path": "./packages/bobpack-html" },
-        { "path": "./packages/bobpack-pug" },
-        { "path": "./packages/bobpack-sass" },
-        { "path": "./packages/bobpack-serve" },
-        { "path": "./packages/bobpack-stylus" },
-        { "path": "./packages/bobpack-typescript" },
-        { "path": "./packages/bobpack-vue" }
-    ]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "declaration": true,
+        "declarationDir": "./types",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "lib": ["es6", "es7", "esnext"],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "outDir": "./lib",
+        "preserveConstEnums": true,
+        "preserveWatchOutput": true,
+        "pretty": true,
+        "removeComments": false,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "strict": true,
+        "target": "es5",
+        "types": ["node"]
+    },
+    "exclude": ["node_modules"],
+    "include": ["./src/**/*.ts"]
 }
