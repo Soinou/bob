@@ -1,0 +1,34 @@
+{
+    "name": "@bobpack/html",
+    "version": "0.1.0",
+    "description": "Html plugin for bobpack",
+    "keywords": [
+        "builder",
+        "webpack",
+        "bob",
+        "bobpack",
+        "html"
+    ],
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "html-webpack-plugin": "^4.0.0-alpha"
+    },
+    "peerDependencies": {
+        "@bobpack/core": "^0.1.0"
+    }
+}

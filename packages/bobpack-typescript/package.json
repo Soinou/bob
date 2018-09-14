@@ -1,0 +1,37 @@
+{
+    "name": "@bobpack/typescript",
+    "version": "0.1.0",
+    "description": "Typescript loader for bobpack",
+    "keywords": [
+        "builder",
+        "webpack",
+        "bob",
+        "bobpack",
+        "typescript"
+    ],
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "thread-loader": "^1.2.0",
+        "ts-loader": "^5.1.0",
+        "tslib": "^1.9.3",
+        "typescript": "^3.0.3"
+    },
+    "peerDependencies": {
+        "@bobpack/core": "^0.1.0"
+    }
+}

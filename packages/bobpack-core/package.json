@@ -1,0 +1,38 @@
+{
+    "name": "@bobpack/core",
+    "version": "0.1.0",
+    "description": "It's a builder!",
+    "keywords": [
+        "builder",
+        "webpack",
+        "bob",
+        "bobpack"
+    ],
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "require-fool-webpack": "^2.0.0",
+        "uglifyjs-webpack-plugin": "^1.3.0",
+        "webpack-bundle-analyzer": "^3.0.2",
+        "webpack-node-externals": "^1.7.2"
+    },
+    "peerDependencies": {
+        "webpack": "^4.17.3",
+        "webpack-cli": "^0.4.1",
+        "webpack-serve": "^2.0.2"
+    }
+}

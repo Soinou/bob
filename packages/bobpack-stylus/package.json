@@ -1,0 +1,38 @@
+{
+    "name": "@bobpack/stylus",
+    "version": "0.1.0",
+    "description": "Stylus loader for bobpack",
+    "keywords": [
+        "builder",
+        "webpack",
+        "bob",
+        "bobpack",
+        "stylus"
+    ],
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "css-loader": "^1.0.0",
+        "mini-css-extract-plugin": "^0.4.2",
+        "style-loader": "^0.23.0",
+        "stylus-loader": "^3.0.2",
+        "stylus": "^0.54.5"
+    },
+    "peerDependencies": {
+        "@bobpack/core": "^0.1.0"
+    }
+}

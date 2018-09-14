@@ -1,22 +1,8 @@
 {
     "name": "bobpack",
-    "version": "0.3.1",
+    "version": "0.1.0",
     "description": "It's a builder!",
-    "keywords": [
-        "builder",
-        "webpack",
-        "bob",
-        "bobpack",
-        "typescript"
-    ],
-    "main": "dist/index.js",
-    "module": "lib/index.js",
-    "types": "types/index.d.ts",
-    "files": [
-        "dist",
-        "lib",
-        "types"
-    ],
+    "private": true,
     "author": {
         "email": "abricot.soinou@gmail.com",
         "name": "Abricot Soinou",
@@ -27,55 +13,39 @@
         "node": ">=6.0.0"
     },
     "scripts": {
-        "example:node": "wp --config examples/node/webpack.config.js",
-        "example:web": "webpack-serve --config examples/web/webpack.config.js",
-        "bundle": "NODE_ENV=production wp && tsc",
-        "build": "wp && tsc",
-        "watch:tsc": "tsc -w",
-        "watch:wp": "wp -w",
+        "build": "tsc -b",
+        "watch:clean": "tsc -p ./packages/bobpack-clean -w",
+        "watch:core": "tsc -p ./packages/bobpack-core -w",
+        "watch:css": "tsc -p ./packages/bobpack-css -w",
+        "watch:handlebars": "tsc -p ./packages/bobpack-handlebars -w",
+        "watch:html": "tsc -p ./packages/bobpack-html -w",
+        "watch:pug": "tsc -p ./packages/bobpack-pug -w",
+        "watch:sass": "tsc -p ./packages/bobpack-sass -w",
+        "watch:serve": "tsc -p ./packages/bobpack-serve -w",
+        "watch:stylus": "tsc -p ./packages/bobpack-stylus -w",
+        "watch:typescript": "tsc -p ./packages/bobpack-typescript -w",
+        "watch:vue": "tsc -p ./packages/bobpack-vue -w",
         "watch": "run-p -l watch:*"
     },
     "dependencies": {
+        "@types/node": "^10.9.4",
         "clean-webpack-plugin": "^0.1.19",
-        "connect-history-api-fallback": "^1.5.0",
-        "css-loader": "^1.0.0",
-        "handlebars": "^4.0.12",
-        "handlebars-loader": "^1.7.0",
-        "html-webpack-plugin": "^4.0.0-alpha",
-        "koa-connect": "^2.0.1",
-        "mini-css-extract-plugin": "^0.4.2",
-        "node-sass": "^4.9.3",
-        "pug": "^2.0.3",
-        "pug-plain-loader": "^1.0.0",
-        "sass-loader": "^7.1.0",
-        "style-loader": "^0.23.0",
-        "stylus": "^0.54.5",
-        "stylus-loader": "^3.0.2",
+        "npm-run-all": "^4.1.3",
         "thread-loader": "^1.2.0",
         "ts-loader": "^5.1.0",
         "tslib": "^1.9.3",
+        "tslint": "^5.11.0",
+        "tslint-config-prettier": "^1.15.0",
         "typescript": "^3.0.3",
         "uglifyjs-webpack-plugin": "^1.3.0",
-        "vue": "^2.5.17",
-        "vue-loader": "^15.4.1",
-        "vue-template-compiler": "^2.5.17",
-        "webpack-bundle-analyzer": "^2.13.1",
+        "webpack": "^4.18.1",
+        "webpack-cli": "^3.1.0",
         "webpack-node-externals": "^1.7.2"
     },
     "devDependencies": {
-        "@types/cli": "^0.11.19",
-        "@types/fs-extra-promise": "^1.0.7",
-        "@types/node": "^10.9.4",
-        "@types/signale": "^1.2.0",
-        "@types/webpack": "^4.4.11",
-        "npm-run-all": "^4.1.3",
-        "source-map-support": "^0.5.9",
-        "tslint": "^5.11.0",
-        "tslint-config-prettier": "^1.15.0"
+        "lerna": "^3.3.2"
     },
-    "peerDependencies": {
-        "webpack": "^4.17.3",
-        "webpack-command": "^0.4.1",
-        "webpack-serve": "^2.0.2"
-    }
+    "workspaces": [
+        "packages/*"
+    ]
 }

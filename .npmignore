@@ -1,7 +1,0 @@
-.cache
-*.tgz
-examples
-packages
-tsconfig.json
-tslint.json
-webpack.config.js

@@ -1,0 +1,35 @@
+{
+    "name": "@bobpack/handlebars",
+    "version": "0.1.0",
+    "description": "Handlebars loader for bobpack",
+    "keywords": [
+        "builder",
+        "webpack",
+        "bob",
+        "bobpack",
+        "handlebars"
+    ],
+    "main": "lib/index.js",
+    "module": "lib/index.js",
+    "types": "types/index.d.ts",
+    "files": [
+        "lib",
+        "types"
+    ],
+    "author": {
+        "email": "abricot.soinou@gmail.com",
+        "name": "Abricot Soinou",
+        "url": "https://github.com/Soinou"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": ">=6.0.0"
+    },
+    "dependencies": {
+        "handlebars": "^4.0.12",
+        "handlebars-loader": "^1.7.0"
+    },
+    "peerDependencies": {
+        "@bobpack/core": "^0.1.0"
+    }
+}

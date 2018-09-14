@@ -1,1 +1,0 @@
-{"version":3,"file":"analyzer.js","sourceRoot":"","sources":["../packages/analyzer.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,oBAAoB,EAAE,MAAM,yBAAyB,CAAC;AAE/D,MAAM,UAAU,QAAQ;IACpB,OAAO,IAAI,oBAAoB,CAAC;QAC5B,YAAY,EAAE,SAAS;QACvB,QAAQ,EAAE,OAAO;QACjB,YAAY,EAAE,KAAK;KACtB,CAAC,CAAC;AACP,CAAC"}

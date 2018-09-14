@@ -1,5 +1,3 @@
 .cache
 yarn-error.log
-examples/node/bin
-examples/node/public
 node_modules
