@@ -176,7 +176,7 @@ class Builder {
                     extensions.push(".styl", ".stylus");
                     break;
                 case "typescript":
-                    rules.push(typescript(this.parallel));
+                    rules.push(typescript(this.parallel, loaders.includes("vue")));
                     extensions.push(".ts", ".tsx");
                     break;
                 case "vue":

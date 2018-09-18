@@ -1,16 +1,5 @@
-export declare const typescript: (parallel: boolean) => {
+export declare const typescript: (parallel: boolean, hasVue: boolean) => {
     exclude: RegExp;
     test: RegExp;
-    use: (string | {
-        loader: string;
-        options: {
-            appendTsSuffixTo: RegExp[];
-            experimentalWatchApi: boolean;
-            happyPackMode: boolean;
-            onlyCompileBundledFiles: boolean;
-            reportFiles: never[];
-            silent: boolean;
-            transpileOnly: boolean;
-        };
-    })[];
+    use: any[];
 };
