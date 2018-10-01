@@ -2,6 +2,7 @@ import * as MiniCssExtractPlugin from "mini-css-extract-plugin";
 import * as os from "os";
 import * as path from "path";
 import * as VueLoaderPlugin from "vue-loader/lib/plugin";
+import * as webpack from "webpack";
 import * as nodeExternals from "webpack-node-externals";
 
 import { analyzer } from "./analyzer";
@@ -48,6 +49,11 @@ class Builder {
     public readonly target: string;
 
     /**
+     * Experimental stuff
+     */
+    private experimental: boolean;
+
+    /**
      * The built configuration
      */
     private configuration: any;
@@ -60,6 +66,8 @@ class Builder {
      */
     constructor(/* env */ _: any, options: any, target: "web" | "node" = "web") {
         const bobEnv = process.env.BOB_ENV;
+
+        this.experimental = false;
 
         this.target = target;
 
@@ -79,6 +87,15 @@ class Builder {
             resolve: { alias: {} },
             target,
         };
+    }
+
+    /**
+     * Enable experimental stuff
+     */
+    public enableExperimental() {
+        this.experimental = true;
+
+        return this;
     }
 
     /**
@@ -285,15 +302,36 @@ class Builder {
 
             if (this.target === "web") {
                 this.configuration.optimization.runtimeChunk = "single";
-                this.configuration.optimization.splitChunks = {
-                    chunks: "all",
-                    name: true,
-                };
+
+                if (this.experimental) {
+                    this.configuration.optimization.splitChunks = {
+                        cacheGroups: {
+                            vendor: {
+                                name: (module: any) => {
+                                    const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+                                    return `npm.${packageName.replace("@", "")}`;
+                                },
+                                test: /[\\/]node_modules[\\/]/,
+                            },
+                        },
+                        chunks: "all",
+                        maxInitialRequests: Infinity,
+                        minSize: 0,
+                    };
+                } else {
+                    this.configuration.optimization.splitChunks = {
+                        chunks: "all",
+                    };
+                }
             }
 
             this.configuration.output.pathinfo = true;
 
-            this.configuration.plugins.push(new MiniCssExtractPlugin({ filename: "styles.[contenthash].css" }));
+            this.configuration.plugins.push(
+                new MiniCssExtractPlugin({ filename: "styles.[contenthash].css" }),
+                new webpack.HashedModuleIdsPlugin(),
+            );
         }
 
         if (this.serving) {
