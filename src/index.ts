@@ -316,6 +316,8 @@ class Builder {
                             },
                         },
                         chunks: "all",
+                        // This is some black magic right here
+                        maxAsyncRequests: Infinity,
                         maxInitialRequests: Infinity,
                         minSize: 0,
                     };
