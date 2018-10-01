@@ -23,10 +23,6 @@ declare class Builder {
      */
     readonly target: string;
     /**
-     * Experimental stuff
-     */
-    private experimental;
-    /**
      * The built configuration
      */
     private configuration;
@@ -37,10 +33,6 @@ declare class Builder {
      * @param target Target (web or node)
      */
     constructor(/* env */ _: any, options: any, target?: "web" | "node");
-    /**
-     * Enable experimental stuff
-     */
-    enableExperimental(): this;
     /**
      * Adds webpack-serve ready options
      * @param port Port for the webpack-serve backend

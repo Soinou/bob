@@ -49,11 +49,6 @@ class Builder {
     public readonly target: string;
 
     /**
-     * Experimental stuff
-     */
-    private experimental: boolean;
-
-    /**
      * The built configuration
      */
     private configuration: any;
@@ -66,8 +61,6 @@ class Builder {
      */
     constructor(/* env */ _: any, options: any, target: "web" | "node" = "web") {
         const bobEnv = process.env.BOB_ENV;
-
-        this.experimental = false;
 
         this.target = target;
 
@@ -87,15 +80,6 @@ class Builder {
             resolve: { alias: {} },
             target,
         };
-    }
-
-    /**
-     * Enable experimental stuff
-     */
-    public enableExperimental() {
-        this.experimental = true;
-
-        return this;
     }
 
     /**
@@ -303,29 +287,23 @@ class Builder {
             if (this.target === "web") {
                 this.configuration.optimization.runtimeChunk = "single";
 
-                if (this.experimental) {
-                    this.configuration.optimization.splitChunks = {
-                        cacheGroups: {
-                            vendor: {
-                                name: (module: any) => {
-                                    const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                this.configuration.optimization.splitChunks = {
+                    cacheGroups: {
+                        vendor: {
+                            name: (module: any) => {
+                                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
 
-                                    return `npm.${packageName.replace("@", "")}`;
-                                },
-                                test: /[\\/]node_modules[\\/]/,
+                                return `npm.${packageName.replace("@", "")}`;
                             },
+                            test: /[\\/]node_modules[\\/]/,
                         },
-                        chunks: "all",
-                        // This is some black magic right here
-                        maxAsyncRequests: Infinity,
-                        maxInitialRequests: Infinity,
-                        minSize: 0,
-                    };
-                } else {
-                    this.configuration.optimization.splitChunks = {
-                        chunks: "all",
-                    };
-                }
+                    },
+                    chunks: "all",
+                    // This is some black magic right here
+                    maxAsyncRequests: Infinity,
+                    maxInitialRequests: Infinity,
+                    minSize: 0,
+                };
             }
 
             this.configuration.output.pathinfo = true;
