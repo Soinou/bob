@@ -314,9 +314,7 @@ class Builder {
             );
         }
 
-        if (this.serving) {
-            this.configuration.plugins.push(analyzer());
-        }
+        this.configuration.plugins.push(analyzer(this.serving));
 
         return this.configuration;
     }
