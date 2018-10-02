@@ -6,6 +6,5 @@ export function analyzer(serve: boolean) {
         analyzerMode: serve ? "server" : "static",
         logLevel: "error",
         openAnalyzer: false,
-        reportFilename: serve ? "report.html" : "../report.html",
     });
 }
