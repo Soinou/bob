@@ -36,9 +36,10 @@ declare class Builder {
     /**
      * Adds webpack-dev-server ready options
      * @param port Port of the webpack-dev-server backend
+     * @param publicHost Hostname to use on the client side
      * @param publicPath Public path (Should be the same as the output one)
      */
-    devServer(port: number, publicPath: string): this;
+    devServer(port: number, publicHost: string, publicPath: string): this;
     /**
      * Changes the source-map output type
      * @param devtool Devtool to use

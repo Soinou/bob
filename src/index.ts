@@ -68,7 +68,7 @@ class Builder {
 
         this.parallel = os.cpus().length >= 2;
 
-        this.serving = process.env.WEBPACK_SERVE != null;
+        this.serving = process.argv.find(v => v.includes("webpack-dev-server")) != null;
 
         this.configuration = {
             entry: {},
@@ -85,10 +85,11 @@ class Builder {
     /**
      * Adds webpack-dev-server ready options
      * @param port Port of the webpack-dev-server backend
+     * @param publicHost Hostname to use on the client side
      * @param publicPath Public path (Should be the same as the output one)
      */
-    public devServer(port: number, publicPath: string) {
-        this.configuration.devServer = devServer(port, publicPath);
+    public devServer(port: number, publicHost: string, publicPath: string) {
+        this.configuration.devServer = devServer(port, publicHost, publicPath);
 
         return this;
     }

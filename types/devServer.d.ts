@@ -1,16 +1,16 @@
-export declare function devServer(port: number, publicPath: string): {
+export declare function devServer(port: number, publicHost: string, publicPath: string): {
     clientLogLevel: string;
-    compress: boolean;
     contentBase: string;
     historyApiFallback: {
         index: string;
+        verbose: boolean;
     };
     host: string;
-    hot: boolean;
     index: string;
     inline: boolean;
     open: boolean;
     overlay: boolean;
     port: number;
     public: string;
+    publicPath: string;
 };
