@@ -40,13 +40,6 @@ declare class Builder {
      */
     devServer(port: number, publicPath: string): this;
     /**
-     * Adds webpack-serve ready options
-     * @param port Port for the webpack-serve backend
-     * @param hmrPort Port the the webpack-serve HMR backend (The hot reload websocket)
-     * @param publicPath Public path (Should be the same as the output one)
-     */
-    serve(port: number, hmrPort: number, publicPath: string): this;
-    /**
      * Changes the source-map output type
      * @param devtool Devtool to use
      */

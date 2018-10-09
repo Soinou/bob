@@ -14,7 +14,6 @@ import { html } from "./html";
 import { output } from "./output";
 import { pug } from "./pug";
 import { sass } from "./sass";
-import { serve } from "./serve";
 import { stylus } from "./stylus";
 import { typescript } from "./typescript";
 import { uglify } from "./uglify";
@@ -90,18 +89,6 @@ class Builder {
      */
     public devServer(port: number, publicPath: string) {
         this.configuration.devServer = devServer(port, publicPath);
-
-        return this;
-    }
-
-    /**
-     * Adds webpack-serve ready options
-     * @param port Port for the webpack-serve backend
-     * @param hmrPort Port the the webpack-serve HMR backend (The hot reload websocket)
-     * @param publicPath Public path (Should be the same as the output one)
-     */
-    public serve(port: number, hmrPort: number, publicPath: string) {
-        this.configuration.serve = serve(port, hmrPort, publicPath);
 
         return this;
     }
