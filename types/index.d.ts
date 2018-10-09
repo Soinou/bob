@@ -34,6 +34,12 @@ declare class Builder {
      */
     constructor(/* env */ _: any, options: any, target?: "web" | "node");
     /**
+     * Adds webpack-dev-server ready options
+     * @param port Port of the webpack-dev-server backend
+     * @param publicPath Public path (Should be the same as the output one)
+     */
+    devServer(port: number, publicPath: string): this;
+    /**
      * Adds webpack-serve ready options
      * @param port Port for the webpack-serve backend
      * @param hmrPort Port the the webpack-serve HMR backend (The hot reload websocket)

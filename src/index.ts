@@ -8,6 +8,7 @@ import * as nodeExternals from "webpack-node-externals";
 import { analyzer } from "./analyzer";
 import { clean } from "./clean";
 import { css } from "./css";
+import { devServer } from "./devServer";
 import { handlebars } from "./handlebars";
 import { html } from "./html";
 import { output } from "./output";
@@ -80,6 +81,17 @@ class Builder {
             resolve: { alias: {} },
             target,
         };
+    }
+
+    /**
+     * Adds webpack-dev-server ready options
+     * @param port Port of the webpack-dev-server backend
+     * @param publicPath Public path (Should be the same as the output one)
+     */
+    public devServer(port: number, publicPath: string) {
+        this.configuration.devServer = devServer(port, publicPath);
+
+        return this;
     }
 
     /**
