@@ -100,6 +100,11 @@ declare class Builder {
         [key: string]: string;
     }): this;
     /**
+     * Adds a webpack-analyzer-plugin to the plugins
+     * @param port Port on which the plugin should listen
+     */
+    analyze(port: number): this;
+    /**
      * Adds a CleanWebpackPlugin to the plugins
      * @param directory Directory to clean
      * @param exclude Files to exclude (Optional)

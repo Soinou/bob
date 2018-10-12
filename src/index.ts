@@ -253,6 +253,16 @@ class Builder {
     }
 
     /**
+     * Adds a webpack-analyzer-plugin to the plugins
+     * @param port Port on which the plugin should listen
+     */
+    public analyze(port: number) {
+        this.configuration.plugins.push(analyzer(this.serving, port));
+
+        return this;
+    }
+
+    /**
      * Adds a CleanWebpackPlugin to the plugins
      * @param directory Directory to clean
      * @param exclude Files to exclude (Optional)
@@ -313,8 +323,6 @@ class Builder {
                 new webpack.HashedModuleIdsPlugin(),
             );
         }
-
-        this.configuration.plugins.push(analyzer(this.serving));
 
         return this.configuration;
     }

@@ -1,1 +1,1 @@
-export declare function analyzer(serve: boolean): any;
+export declare function analyzer(serve: boolean, port?: number): any;
