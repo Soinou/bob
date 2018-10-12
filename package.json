@@ -1,6 +1,6 @@
 {
     "name": "bobpack",
-    "version": "0.5.4",
+    "version": "0.5.5",
     "description": "It's a builder!",
     "main": "lib/index.js",
     "types": "types/index.d.ts",
