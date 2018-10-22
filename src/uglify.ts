@@ -8,11 +8,9 @@ export function uglify() {
         sourceMap: true,
         uglifyOptions: {
             compress: {
-                arrows: false,
                 booleans: false,
                 collapse_vars: false,
                 comparisons: false,
-                computed_props: false,
                 conditionals: true,
                 dead_code: true,
                 evaluate: true,
